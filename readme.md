@@ -3,9 +3,12 @@ xinge 是根据官方腾讯信鸽推送 Reset API 接口开发出来的 SDK Go �
 ### 使用指南
 
 安装：
+
 go get github.com/panjunjie/xinge
 
+
 使用例子：
+
 ```go
 import(
 	"github.com/panjunjie/xinge"
