@@ -52,7 +52,11 @@ func main(){
 }
 ```
 
-### 快捷接口：
+### 已实现的接口
+本 SDK 接口大致，分快捷接口和高级接口。快捷接口使用一行代码完成推送操作，注：快捷方式只支持推送通知，不支持透传消息。 快捷方式不支持定时推送。
+高级接口可以自定义更细的消息参数，实现自定义消息，定时发送，透传等等高级场景
+
+#### 快捷接口：
 1. Android 平台推送消息给单个设备 PushTokenAndroid
 2. Android 平台推送消息给单个账号 PushAccountAndroid
 3. Android 平台推送消息给所有设备 PushAllAndroid
@@ -62,7 +66,7 @@ func main(){
 7. IOS 平台推送消息给所有设备 PushAllIOS
 8. IOS 平台推送消息给标签选中设备 PushTagIOS
 
-### 高级接口：
+#### 高级接口：
 1. PushSingleDevice 推送消息给单个设备
 2. PushSingleAccount 推送消息给单个账号
 3. PushAccountList 推送消息给多个账号
