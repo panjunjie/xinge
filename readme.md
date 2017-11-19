@@ -33,9 +33,9 @@ func main(){
     
     
     //高级接口使用
-    clientXG := xinge.NewClient(accessId, secretKey)
+    clientXG := xinge.NewClient(accessId, secretKey) // 实例化一个 client，准备使用高级接口
     
-    messageIOS := xinge.EasyMessageIOS("给用户发信鸽 iOS 消息", env) // iOS 简单消息体实例化
+    messageIOS := xinge.EasyMessageIOS("给用户发信鸽 iOS 消息", env) // 实例化 iOS 简单消息体
     //定义自定义参数
     custom := map[string]interface{}{}
     custom["customTxt"] = 1
@@ -45,11 +45,12 @@ func main(){
     messageIOS.SetSound("ring.ogg")
     messageIOS.AddAcceptTime(...)
     
-    messageAndroid := xinge.EasyMessageAndroid("推送的标题","给用户发信鸽 Android 消息") // Android 简单消息体实例化
+    messageAndroid := xinge.EasyMessageAndroid("推送的标题","给用户发信鸽 Android 消息") // 实例化 Android 简单消息体
     //给消息体设置更多参数
     messageAndroid.SetCustom(custom)
     
-    clientXG.PushSingleAccount("accountId",messageIOS) //给指定 iOS 用户账号发消息
+    // 高级接口，Android 和 iOS 公用同类方法的，区别在消息结构体
+    clientXG.PushSingleAccount("accountId",messageIOS) //给指定 iOS 用户账号发消息
     clientXG.PushSingleAccount("accountId",messageAndroid) //给指定 Android 用户账号发消息
     ...
 }
