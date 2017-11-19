@@ -5,31 +5,31 @@ xinge 是根据官方腾讯信鸽推送 Reset API 接口开发出来的 SDK Go �
 安装：
 go get github.com/panjunjie/xinge
 
-使用
+使用例子：
 ```go
 import(
 	"github.com/panjunjie/xinge"
 )
 
 func main(){
-	accessId := 2100259827 //自己的信鸽 accessId
+    accessId := 2100259827 //自己的信鸽 accessId
     secretKey := "c2bb3a21f49715748a3a240dd17e6bd4" //自己的信鸽 secretKey
     
-    //快捷方式给苹果用户发推送消息
+    //快捷接口给苹果用户发推送消息
     env := 2  // 1：正式环境；2：测试环境
     xinge.PushTokenIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "token", env) //给指定 Token 用户发消息
     xinge.PushAccountIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "accountId", env) //给指定用户账号发消息
     xinge.PushAllIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", env) //给全部用户发消息
     xinge.PushTagIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "tag", env) //给指定 Tag 用户发消息
     
-    //快捷方式给安卓用户发推送消息
+    //快捷接口给安卓用户发推送消息
     xinge.PushTokenAndroid(accessId, secretKey, "给用户发信鸽 Android 消息", "token") //给指定 Token 用户发消息
     xinge.PushAccountAndroid(accessId, secretKey, "给用户发信鸽 Android 消息", "accountId") //给指定用户账号发消息
     xinge.PushAllAndroid(accessId, secretKey, "给用户发信鸽 Android 消息") //给全部用户发消息
     xinge.PushTagAndroid(accessId, secretKey, "给用户发信鸽 Android 消息", "tag") //给指定 Tag 用户发消息
     
     
-    //高级方式使用
+    //高级接口使用
     clientXG := xinge.NewClient(accessId, secretKey)
     
     messageIOS := xinge.EasyMessageIOS("给用户发信鸽 iOS 消息", env) // iOS 简单消息体实例化
@@ -88,7 +88,7 @@ func main(){
 
 消息体接口、Android 消息体、 iOS 消息体，
 ```go
-	type Message interface {
+    type Message interface {
         IsValid() bool
         ToJSON() string
         GetType() int
