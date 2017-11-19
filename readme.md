@@ -1,6 +1,6 @@
 xinge 是根据官方腾讯信鸽推送 Reset API 接口开发出来的 SDK Go 版本的实现，基本和官方的各大 SDK 接口同步。后期如果官方有改动，本 SDK 也将会尽快跟进！
 
-###使用指南
+### 使用指南
 
 安装：
 go get github.com/panjunjie/xinge
@@ -52,7 +52,7 @@ func main(){
 }
 ```
 
-###快捷接口：
+### 快捷接口：
 1. Android 平台推送消息给单个设备 PushTokenAndroid
 2. Android 平台推送消息给单个账号 PushAccountAndroid
 3. Android 平台推送消息给所有设备 PushAllAndroid
@@ -62,7 +62,7 @@ func main(){
 7. IOS 平台推送消息给所有设备 PushAllIOS
 8. IOS 平台推送消息给标签选中设备 PushTagIOS
 
-###高级接口：
+### 高级接口：
 1. PushSingleDevice 推送消息给单个设备
 2. PushSingleAccount 推送消息给单个账号
 3. PushAccountList 推送消息给多个账号
