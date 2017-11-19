@@ -17,13 +17,13 @@ func main(){
     
     //快捷方式给苹果用户发推送消息
     env := 2  // 1：正式环境；2：测试环境
-	xinge.PushTokenIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "token", env) //给指定 Token 用户发消息
+    xinge.PushTokenIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "token", env) //给指定 Token 用户发消息
     xinge.PushAccountIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "accountId", env) //给指定用户账号发消息
     xinge.PushAllIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", env) //给全部用户发消息
     xinge.PushTagIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "tag", env) //给指定 Tag 用户发消息
     
     //快捷方式给安卓用户发推送消息
-	xinge.PushTokenAndroid(accessId, secretKey, "给用户发信鸽 Android 消息", "token") //给指定 Token 用户发消息
+    xinge.PushTokenAndroid(accessId, secretKey, "给用户发信鸽 Android 消息", "token") //给指定 Token 用户发消息
     xinge.PushAccountAndroid(accessId, secretKey, "给用户发信鸽 Android 消息", "accountId") //给指定用户账号发消息
     xinge.PushAllAndroid(accessId, secretKey, "给用户发信鸽 Android 消息") //给全部用户发消息
     xinge.PushTagAndroid(accessId, secretKey, "给用户发信鸽 Android 消息", "tag") //给指定 Tag 用户发消息
@@ -35,9 +35,9 @@ func main(){
     messageIOS := xinge.EasyMessageIOS("给用户发信鸽 iOS 消息", env) // iOS 简单消息体实例化
     //定义自定义参数
     custom := map[string]interface{}{}
-	custom["customTxt"] = 1
+    custom["customTxt"] = 1
     //给消息体设置更多参数
-	messageIOS.SetCustom(custom)
+    messageIOS.SetCustom(custom)
     messageIOS.SetBadge(100)
     messageIOS.SetSound("ring.ogg")
     messageIOS.AddAcceptTime(...)
