@@ -416,7 +416,7 @@ func (c *Client) PushTags(tagList []string, tagOp string, message Message) XgRes
  * @param message 待推送的消息
  * @return 服务器执行结果， XgResponse 实体
  */
-func (c *Client) CreateMultipush(deviceType int, message Message) int64 {
+func (c *Client) CreateMultipush(message Message) int64 {
 	if !message.IsValid() {
 		return 0
 	}
@@ -433,11 +433,6 @@ func (c *Client) CreateMultipush(deviceType int, message Message) int64 {
 		return 0
 	}
 
-	// pushId, err := strconv.ParseInt(res.XgResult.PushId, 10, 64)
-	// if err != nil {
-	// 	return 0
-	// }
-	// return pushId
 	return res.XgResult.PushId
 }
 
