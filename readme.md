@@ -1,6 +1,8 @@
 xinge 是根据官方腾讯信鸽推送 Reset API 接口开发的 Go 版本 SDK 实现，功能和使用方式力求与官方保持高度一致！后期如果官方 SDK 有升级改动，本 SDK 也将会尽快跟进！
 
-### 使用指南
+信鸽官方文档：http://docs.developer.qq.com/xg/
+
+### SDK 使用指南
 
 第一次安装：
 
@@ -59,7 +61,7 @@ func main(){
 }
 ```
 
-### 已实现的接口
+### SDK 已实现的接口
 本 SDK 接口大致，分快捷接口和高级接口。快捷接口使用一行代码完成推送操作，注：快捷方式只支持推送通知，不支持透传消息。 快捷方式不支持定时推送。
 高级接口可以自定义更细的消息参数，实现自定义消息，定时发送，透传等等高级场景
 
@@ -95,7 +97,7 @@ func main(){
 19. DeleteTokenOfAccount 删除 account 绑定的 token
 20. DeleteAllTokensOfAccount 删除 account 绑定的所有 token
 
-### 消息体定义
+### SDK 消息体定义
 
 消息体接口、Android 消息体、 iOS 消息体，
 ```go
@@ -151,6 +153,10 @@ EasyMessageAndroid(title,content)
 需要了解消息体结构，才能配置更细的参数，调用高级接口很有帮助。
 
 
+### SDK 响应数据
+
+为了通用性，SDK 响应数据是原信鸽响应的 JSON 字符串，不做任何序列化处理。用户自行根据不同的接口，定义结构体。具体的响应结果，请参考官方的文档 http://docs.developer.qq.com/xg/server_api/rest.html
+
+
 ### 需要你的帮助
 如果你在使用的过程中，发现任何可疑的 Bug，请不吝反馈，我会尽快检查修复，谢谢。
-"# xinge" 
