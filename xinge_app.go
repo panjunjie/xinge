@@ -340,7 +340,7 @@ func (c *Client) PushSingleAccount(account string, message Message) XgResponse {
 	params := initParams()
 	params["account"] = account
 	params["message"] = message.ToJSON()
-	//`{"accept_time":[],"action":{"action_type":1,"browser":{},"aty_attr":{}},"builder_id":0,"clearable":1,"content":"潘军杰测试信鸽推送 Android API","custom_content":null,"icon_res":"","icon_type":0,"lights":1,"n_id":0,"ring":0,"ring_raw":"","small_icon":"","style_id":1,"title":"哎菠菜","vibrate":1}` //message.ToJSON()
+	//`{"accept_time":[],"action":{"action_type":1,"browser":{},"aty_attr":{}},"builder_id":0,"clearable":1,"content":"测试信鸽推送 Android API","custom_content":null,"icon_res":"","icon_type":0,"lights":1,"n_id":0,"ring":0,"ring_raw":"","small_icon":"","style_id":1,"title":"哎菠菜","vibrate":1}`
 	return c.push(RESTAPI_PUSHSINGLEACCOUNT, message, params)
 }
 
