@@ -12,9 +12,9 @@ type ClickAction struct {
 	Activity                    string   `json:"activity,omitempty"`
 	Intent                      string   `json:"intent,omitempty"`
 	AtyAttr                     *AtyAttr `json:"aty_attr,omitempty"`
+	PackageName                 string   `json:"package_name,omitempty"`
 	PackageDownloadUrl          string   `json:"-"`
 	ConfirmOnPackageDownloadUrl int      `json:"-"`
-	PackageName                 string   `json:"package_name,omitempty"`
 }
 
 func NewClickAction() *ClickAction {
@@ -23,9 +23,9 @@ func NewClickAction() *ClickAction {
 		Browser:                     NewBrowser(),
 		Activity:                    "",
 		AtyAttr:                     NewAtyAttr(),
+		PackageName:                 "",
 		PackageDownloadUrl:          "",
 		ConfirmOnPackageDownloadUrl: 1,
-		PackageName:                 "",
 	}
 }
 
