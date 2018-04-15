@@ -1,7 +1,6 @@
 package xinge
 
 import (
-	"bytes"
 	"encoding/json"
 	"time"
 )
@@ -339,7 +338,9 @@ func (s *MessageIOS) ToJSON() string {
 		jsonObj["custom"] = s.Custom
 	}
 
-	jsonObj["accept_time"] = s.AcceptTime
+	if s.AcceptTime != nil {
+		jsonObj["accept_time"] = s.AcceptTime
+	}
 
 	aps := map[string]interface{}{}
 	if s.Type == TYPE_REMOTE_NOTIFICATION {
