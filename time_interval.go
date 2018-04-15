@@ -1,22 +1,17 @@
 package xinge
 
 type TimeInterval struct {
-	StartTime *StartTime `json:"start"`
-	EndTime   *EndTime   `json:"end"`
+	StartTime *TimePart `json:"start"`
+	EndTime   *TimePart `json:"end"`
 }
 
-type StartTime struct {
-	Hour int `json:"hour"`
-	Min  int `json:"min"`
-}
-
-type EndTime struct {
+type TimePart struct {
 	Hour int `json:"hour"`
 	Min  int `json:"min"`
 }
 
 func DefaultTimeInterval() *TimeInterval {
-	return &TimeInterval{StartTime: &StartTime{0, 0}, EndTime: &EndTime{23, 59}}
+	return &TimeInterval{StartTime: &TimePart{0, 0}, EndTime: &TimePart{23, 59}}
 }
 
 func (s *TimeInterval) IsValid() bool {
