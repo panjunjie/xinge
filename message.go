@@ -1,9 +1,9 @@
 package xinge
 
 import (
+	"bytes"
 	"encoding/json"
 	"time"
-	// "fmt"
 )
 
 const (
@@ -202,10 +202,8 @@ func (s *MessageAndroid) ToJSON() string {
 
 	byt, err := json.Marshal(jsonObj)
 	if err != nil {
-		return ""
+		return `{}`
 	}
-
-	//fmt.Println(string(byt))
 
 	return string(byt)
 }
@@ -214,12 +212,12 @@ func (s *MessageAndroid) ToJSON() string {
 type MessageIOS struct {
 	ExpireTime   int                    `json:"expire_time"`
 	SendTime     string                 `json:"send_time"`
-	AcceptTime   []TimeInterval         `json:"accept_time"`
+	AcceptTime   []TimeInterval         `json:"accept_time,omitempty"`
 	Type         int                    `json:"message_type"`
 	Custom       map[string]interface{} `json:"custom,omitempty"`
-	Raw          string                 `json:"raw"`
-	AlertStr     string                 `json:"alert"`
-	AlertJo      []string               `json:"alert"`
+	Raw          string                 `json:"raw,omitempty"`
+	AlertStr     string                 `json:"alert,omitempty"`
+	AlertJo      []string               `json:"alert,omitempty"`
 	Badge        int                    `json:"badge"`
 	Sound        string                 `json:"sound"`
 	Category     string                 `json:"category"`
@@ -369,7 +367,7 @@ func (s *MessageIOS) ToJSON() string {
 
 	byt, err := json.Marshal(jsonObj)
 	if err != nil {
-		return ""
+		return `{}`
 	}
 	return string(byt)
 }
