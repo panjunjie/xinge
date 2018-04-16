@@ -23,7 +23,8 @@ func NewStyleBase(builderId int, ring int, vibrate int, clearable int, nId int) 
 }
 
 func NewStyleFull(builderId int, ring int, vibrate int, clearable int, nId int, lights int, iconType int, styleId int) *Style {
-	return &Style{BuilderId: builderId,
+	return &Style{
+		BuilderId: builderId,
 		Ring:      ring,
 		Vibrate:   vibrate,
 		Clearable: clearable,
