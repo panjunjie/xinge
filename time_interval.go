@@ -15,8 +15,10 @@ func DefaultTimeInterval() *TimeInterval {
 }
 
 func (s *TimeInterval) IsValid() bool {
-	if s.StartTime.Hour >= 0 && s.StartTime.Hour <= 23 && s.StartTime.Min >= 0 && s.StartTime.Min <= 59 &&
-		s.EndTime.Hour >= 0 && s.EndTime.Hour <= 23 && s.EndTime.Min >= 0 && s.EndTime.Min <= 59 {
+	if s.StartTime.Hour >= 0 && s.StartTime.Hour <= 23 &&
+		s.StartTime.Min >= 0 && s.StartTime.Min <= 59 &&
+		s.EndTime.Hour >= 0 && s.EndTime.Hour <= 23 &&
+		s.EndTime.Min >= 0 && s.EndTime.Min <= 59 {
 		return true
 	}
 	return false
