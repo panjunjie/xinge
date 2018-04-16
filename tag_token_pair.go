@@ -5,6 +5,6 @@ type TagTokenPair struct {
 	Token string `json:"token,omitempty"`
 }
 
-func NewTagTokenPair(tag, token string) *TagTokenPair {
+func NewTagTokenPair(tag string, token string) *TagTokenPair {
 	return &TagTokenPair{tag, token}
 }
