@@ -32,7 +32,6 @@ const (
 )
 
 var (
-	client                           *Client
 	RESTAPI_PUSHSINGLEDEVICE         string = RESTAPI_DOMAIN + "/v2/push/single_device"
 	RESTAPI_PUSHSINGLEACCOUNT        string = RESTAPI_DOMAIN + "/v2/push/single_account"
 	RESTAPI_PUSHACCOUNTLIST          string = RESTAPI_DOMAIN + "/v2/push/account_list"
@@ -63,10 +62,7 @@ type Client struct {
 
 // 实例化信鸽 Client 结构体，给 accessId, secretKey 赋值
 func NewClient(accessId int64, secretKey string) *Client {
-	if client == nil || client.accessId != accessId {
-		client = &Client{accessId, secretKey}
-	}
-	return client
+	return &Client{accessId, secretKey}
 }
 
 // 检验 Token 参数
