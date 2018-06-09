@@ -63,10 +63,7 @@ type Client struct {
 
 // 实例化信鸽 Client 结构体，给 accessId, secretKey 赋值
 func NewClient(accessId int64, secretKey string) *Client {
-	if client == nil || accessId != client.accessId {
-		client = &Client{accessId, secretKey}
-	}
-	return client
+	return &Client{accessId, secretKey}
 }
 
 // 检验 Token 参数
