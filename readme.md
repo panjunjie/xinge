@@ -20,15 +20,18 @@ import(
 )
 
 func main(){
-    accessId := 2100259827 //自己的信鸽 accessId
-    secretKey := "c2bb3a21f49715748a3a240dd17e6bd4" //自己的信鸽 secretKey
+    accessId := 2100259827 //android accessId
+    secretKey := "c2bb3a21f49715748a3a240dd17e6bd4" //android secretKey
+    
+    accessIdIOS := 2100259827 //ios accessId
+    secretKeyIOS := "c2bb3a21f49715748a3a240dd17e6bd4" //ios secretKey
     
     //快捷接口给苹果用户发推送消息
     env := 2  // 1：正式环境；2：测试环境
-    xinge.PushTokenIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "token", env) //给指定 Token 用户发消息
-    xinge.PushAccountIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "accountId", env) //给指定用户账号发消息
-    xinge.PushAllIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", env) //给全部用户发消息
-    xinge.PushTagIOS(accessId, secretKey, "给用户发信鸽 iOS 消息", "tag", env) //给指定 Tag 用户发消息
+    xinge.PushTokenIOS(accessIdIOS, secretKeyIOS, "给用户发信鸽 iOS 消息", "token", env) //给指定 Token 用户发消息
+    xinge.PushAccountIOS(accessIdIOS, secretKeyIOS, "给用户发信鸽 iOS 消息", "accountId", env) //给指定用户账号发消息
+    xinge.PushAllIOS(accessIdIOS, secretKeyIOS, "给用户发信鸽 iOS 消息", env) //给全部用户发消息
+    xinge.PushTagIOS(accessIdIOS, secretKeyIOS, "给用户发信鸽 iOS 消息", "tag", env) //给指定 Tag 用户发消息
     
     //快捷接口给安卓用户发推送消息
     xinge.PushTokenAndroid(accessId, secretKey, "给用户发信鸽 Android 消息", "token") //给指定 Token 用户发消息
@@ -38,8 +41,7 @@ func main(){
     
     
     //高级接口使用
-    clientXG := xinge.NewClient(accessId, secretKey) // 实例化一个 client，准备使用高级接口
-    
+    
     messageIOS := xinge.EasyMessageIOS("给用户发信鸽 iOS 消息", env) // 实例化 iOS 简单消息体
     //定义自定义参数
     custom := map[string]interface{}{}
@@ -55,8 +57,11 @@ func main(){
     messageAndroid.SetCustom(custom)
     
     // 高级接口，Android 和 iOS 公用同类方法的，区别在消息结构体
-    clientXG.PushSingleAccount("accountId",messageIOS) //给指定 iOS 用户账号发消息
-    clientXG.PushSingleAccount("accountId",messageAndroid) //给指定 Android 用户账号发消息
+    clientXGIOS := xinge.NewClient(accessIdIOS, secretKeyIOS) // 实例化一个 client，准备使用高级接口
+    clientXGIOS.PushSingleAccount("accountId",messageIOS) //给指定 iOS 用户账号发消息
+    
+    clientXGAndroid := xinge.NewClient(accessId, secretKey) // 实例化一个 client，准备使用高级接口
+    clientXGAndroid.PushSingleAccount("accountId",messageAndroid) //给指定 Android 用户账号发消息
     ...
 }
 ```
