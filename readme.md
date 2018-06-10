@@ -21,9 +21,9 @@ import(
 
 func main(){
     accessId := 2100259827 //android accessId
-    secretKey := "c2bb3a21f49715748a3a240dd17e6bd4" //android secretKey
+    secretKey := "c1bb3a21f49715748a3a240dd17e6bd4" //android secretKey
     
-    accessIdIOS := 2100259827 //ios accessId
+    accessIdIOS := 2200259827 //ios accessId
     secretKeyIOS := "c2bb3a21f49715748a3a240dd17e6bd4" //ios secretKey
     
     //快捷接口给苹果用户发推送消息
